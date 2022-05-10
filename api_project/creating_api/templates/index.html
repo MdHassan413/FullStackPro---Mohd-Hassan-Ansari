@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+    <title>Home | Way to Navigation</title>
+</head>
+<style>
+    body {
+        padding: 2vh;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <!-- Navbar content -->
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Product</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    {% if user.is_authenticated %}
+                    <a href="/api_project" type="button" class="btn btn-primary"><span class="material-icons">
+                        api
+                        </span></a>
+                    <a href="/admin" type="button" class="btn btn-primary" ><span class="material-icons">
+                        person
+                        </span></a>
+                    <a href="http://localhost:4200/" type="button" class="btn btn-primary" > <span class="material-icons">
+                            add_shopping_cart
+                            </span></a>
+                    {% else %}
+                    <a href="/admin" type="button" class="btn btn-primary">Login</a>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <p class="text-center mt-4"> Note : This Page is only For Admin if you have login so you can access admin page
+        {% if user.is_authenticated %}
+        <a href="/admin">Go To Admin</a>.
+        {% else %}
+        <a href="/admin">Login</a>.
+        {% endif %}
+    </p>
+    <!-- <br>
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">
+            {% if user.is_authenticated %}
+            Hey, <Strong>{{ user.get_username }}</Strong>
+            <a href="/admin" style="color: black;"><strong>Go to Admin.</strong></a>
+        </h4>
+        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer
+            so that you can see how spacing within an alert works with this kind of content.</p>
+        <hr>
+        <p class="mb-0">Note : Only This Page is only for Admin
+            <a href="/admin" style="color: black;"><strong>Admin.</strong></a>
+        </p>
+        {% else %}
+        Welcome Sir, Please <a href="/admin" style="color: black;"><strong>Login.</strong></a>
+        </h4>
+        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer
+            so that you can see how spacing within an alert works with this kind of content.</p>
+        <hr>
+        <p class="mb-0">Note : Only This Page is only for Admin
+            <a href="/admin" style="color: black;"><strong>Login.</strong></a>
+        </p>
+        {% endif %}
+    </div> -->
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

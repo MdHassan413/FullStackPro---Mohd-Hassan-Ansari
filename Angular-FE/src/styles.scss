@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+form {
+    font-family: arial;
+    font-size: 24px;
+    margin: 25px;
+    width: 350px;
+    height: 200px;
+    /* Setup */
+    position: relative;
+  }
+
+body{
+    padding: 2vh;
+}

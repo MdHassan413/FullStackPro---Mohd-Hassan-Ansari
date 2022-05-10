@@ -1,0 +1,2 @@
+First, install all dependencies for both Front-end and Back-end 
+and then in setting.py, custom your database. It will work fine.

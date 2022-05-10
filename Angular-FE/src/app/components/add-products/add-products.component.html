@@ -1,0 +1,75 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <h3 style="color:rgb(34, 128, 209)">Product Add</h3>
+    </div>
+</nav>
+<div >
+    <form [formGroup]="prodFrom" (ngSubmit)="saveItem()">
+        <div class="mb-3">
+                <label for="exampleInputtext1" class="form-label">Product</label>
+                <input type="text" formControlName="product" class="form-control" id="exampleInputtext1">
+                <label class="error-lable m-2"
+                    *ngIf="prodFrom.get('product')?.touched && prodFrom.get('product')?.errors && prodFrom.get('product')?.errors?.['required']">*Product
+                    Name is required</label>
+                <label class="error-lable m-2"
+                    *ngIf="prodFrom.get('product')?.touched && prodFrom.get('product')?.errors && prodFrom.get('product')?.errors?.['minLength']">*3
+                    char At least should be there</label>
+                <br>
+                <label for="exampleInputtext2" class="form-label">Quantity</label>
+                <input type="text" formControlName="quantity" class="form-control" id="exampleInputtext2">
+                <label class="error-lable m-2"
+                    *ngIf="prodFrom.get('quantity')?.touched && prodFrom.get('quantity')?.errors && prodFrom.get('quantity')?.errors?.['required']">*quantity
+                    is required</label>
+                <label class="error-lable m-2"
+                    *ngIf="prodFrom.get('quantity')?.touched && prodFrom.get('quantity')?.errors && prodFrom.get('quantity')?.errors?.['minLength']">*only
+                    3 number should be there</label>
+                <br>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="addItem()">Add Product</button>
+    </form>
+</div>
+<br>
+<br>
+<br>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Sr-No</th>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listData">
+                <th>{{ item.id }}</th>
+                <td>{{ item.product }}</td>
+                <td>{{ item.quantity }}</td>
+                <td><button type="button" class="btn btn-outline-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- <hr>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+    data-bs-target="#exampleModal">Submit</button>
+<div class="modal fade" id="mobileNoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">To Add Your Product</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" formControlName="number" class="form-control" id="exampleInputtext3"
+                    placeholder="eg. +91 0000000000">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Add Number</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
